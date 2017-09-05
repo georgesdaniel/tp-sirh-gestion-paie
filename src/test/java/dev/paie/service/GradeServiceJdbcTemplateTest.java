@@ -45,15 +45,16 @@ public class GradeServiceJdbcTemplateTest {
 		System.out.println(gradeService.lister());
 
 		// TODO modifier un grade
-		Grade gradeModif = new Grade();
-		gradeModif.setId(3);
-		gradeModif.setCode("G3");
-		gradeModif.setNbHeuresBase(new BigDecimal(66.66));
-		gradeModif.setTauxBase(new BigDecimal(44.44));
-		gradeService.mettreAJour(gradeModif);
+				
+		nouveauGrade.setCode("G3");
+		nouveauGrade.setNbHeuresBase(new BigDecimal(66.66));
+		nouveauGrade.setTauxBase(new BigDecimal(44.44));
+		gradeService.mettreAJour(nouveauGrade);
 			
 
 		// TODO vérifier que les modifications sont bien prises en compte via la méthode
 		// lister
+		
+		System.out.println(gradeService.lister());
 	}
 }
