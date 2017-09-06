@@ -11,9 +11,11 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @ComponentScan ({"dev.paie.service","dev.paie.entite","dev.paie.util"})
+@EnableTransactionManagement //Obligatoire à mettre pour les transactions
 public class JpaConfig {
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {

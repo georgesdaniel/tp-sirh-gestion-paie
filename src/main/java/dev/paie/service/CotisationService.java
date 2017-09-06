@@ -10,4 +10,6 @@ public interface CotisationService {
 	void mettreAJour(Cotisation cotisation);
 
 	List<Cotisation> lister();
+
+	Cotisation findByCode(String string);
 }
