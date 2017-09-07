@@ -1,11 +1,25 @@
 package dev.paie.entite;
 
-public class Avantage {
+import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+
+public class Avantage {
+	@Id
 	private Integer id;
 	private String code;
 	private String nom;
-	private Integer montant;
+	private BigDecimal montant;
+	
+	@ManyToOne
+	@JoinColumn(name="PRF_ID")
+	private ProfilRemuneration profilRemuneration;
 
 	public String getCode() {
 		return code;
@@ -23,11 +37,11 @@ public class Avantage {
 		this.nom = nom;
 	}
 
-	public Integer getMontant() {
+	public BigDecimal getMontant() {
 		return montant;
 	}
 
-	public void setMontant(Integer montant) {
+	public void setMontant(BigDecimal montant) {
 		this.montant = montant;
 	}
 

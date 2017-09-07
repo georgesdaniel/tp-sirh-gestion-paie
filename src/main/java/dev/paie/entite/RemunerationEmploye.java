@@ -1,11 +1,29 @@
 package dev.paie.entite;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="EMPLOYES")
 public class RemunerationEmploye {
-	
+	@Id
 	private Integer id;
 	private String matricule;
+	
+	@ManyToOne
+	@JoinColumn(name="ENT_ID")
 	private Entreprise entreprise;
+	
+	@ManyToOne
+	@JoinColumn(name="PRF_ID")
 	private ProfilRemuneration profilRemuneration;
+	
+	@ManyToOne
+	@JoinColumn(name="GRD_ID")
 	private Grade grade;
 	
 	public String getMatricule() {

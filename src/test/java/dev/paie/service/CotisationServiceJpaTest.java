@@ -14,8 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import config.ServicesConfig;
+import dev.paie.config.JpaConfig;
 import dev.paie.entite.Cotisation;
-import dev.paie.spring.JpaConfig;
 
 //TODO compléter la configuration
 
@@ -45,7 +45,6 @@ public class CotisationServiceJpaTest {
 		assertTrue(cotisations.contains(cotisation2));
 				
 		// TODO modifier une cotisation
-		
 		// TODO vérifier que les modifications sont bien prises en compte via la méthode
 		// lister
 		Cotisation cotisationFromBase = cotisationService.findByCode("FR1");

@@ -2,13 +2,25 @@ package dev.paie.entite;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Periode {
-	
+	@Id
 	private Integer id;
 	
 	private LocalDate dateDebut;
 	private LocalDate dateFin;
+	
+	public Periode(int numMois) { 
+		int year = LocalDate.now().getYear();
+		this.dateDebut = LocalDate.of(year, numMois, 1);
+		this.dateFin = dateDebut.withDayOfMonth(dateDebut.lengthOfMonth());
+		}
+	public Periode() {
+		
+	}
 	
 	public LocalDate getDateDebut() {
 		return dateDebut;
