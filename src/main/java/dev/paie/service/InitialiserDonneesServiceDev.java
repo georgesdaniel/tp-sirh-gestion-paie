@@ -12,7 +12,6 @@ import dev.paie.entite.Grade;
 import dev.paie.entite.Periode;
 import dev.paie.entite.ProfilRemuneration;
 import dev.paie.entite.RemunerationEmploye;
-import dev.paie.entite.ResultatCalculRemuneration;
 import dev.paie.repository.AvantageRepository;
 import dev.paie.repository.CotisationRepository;
 import dev.paie.repository.EntrepriseRepository;
@@ -24,8 +23,8 @@ import dev.paie.repository.RemunerationEmployeRepository;
 @Service
 public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 
-	//@Autowired
-	//private AvantageRepository avantageRepository;
+@Autowired
+private AvantageRepository avantageRepository;
 
 	@Autowired
 	private CotisationRepository cotisationRepository;
@@ -58,7 +57,7 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 	private List<Entreprise> entreprises;
 
 	//@Autowired
-	//private List<Periode> periodes;
+	//private List<Periode> periode;
 	
 	@Autowired
 	private List<ProfilRemuneration> profils;
@@ -74,6 +73,10 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 			cotisationRepository.save(c);
 		}
 		
+//		for (Avantage a: avantages) {
+//			avantageRepository.save(a);
+//		}
+//		
 		for (Grade g: grades) {
 			gradeRepository.save(g);
 		}
@@ -85,15 +88,10 @@ public class InitialiserDonneesServiceDev implements InitialiserDonneesService {
 		for (int i=1; i<=12;i++) {
 			periodeRepository.save(new Periode(i));
 		}
-		
-		for (ProfilRemuneration pro: profils) {
-			profilRemunerationRepository.save(pro);
-		}
-		
-		for (RemunerationEmploye r: remunerations) {
-			remunerationRepository.save(r);
-		}
-
+//		
+//		for (ProfilRemuneration pro: profils) {
+//			profilRemunerationRepository.save(pro);
+//		}
 	}
 
 }

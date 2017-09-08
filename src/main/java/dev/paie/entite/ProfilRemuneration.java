@@ -7,6 +7,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -30,7 +31,7 @@ public class ProfilRemuneration {
 	)
 	private List<Cotisation> cotisationsImposables;
 
-	@OneToMany(mappedBy = "profilRemuneration")
+	@Transient  //(mappedBy = "profilRemuneration")
 	private List<Avantage> avantages;
 
 	public Integer getId() {

@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cotisation")
+@Table(name="COTISATIONS")
 public class Cotisation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
