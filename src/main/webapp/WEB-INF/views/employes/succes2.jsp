@@ -9,6 +9,6 @@
 <body>
 Menu :
 	<a href="<%=request.getContextPath()%>">Accueil</a>
-<h1>Insertion employés dans la base réussie !!!!!!!</h1>
+<h1>Insertion Bulletin dans la base réussie !!!!!!!</h1>
 </body>
 </html>

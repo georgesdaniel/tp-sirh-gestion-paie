@@ -1,5 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	language="java"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -14,8 +13,8 @@
 <h2>Menu Gestion de paie</h2>
 <ul>
 <li><a href="<%=request.getContextPath()%>/mvc/employes/creer">Ajouter un employé</a></li>
-<li><a href="">Liste des employés</a></li>
-<li><a href="">Créer un bulletin de salaire</a></li>
+<li><a href="<%=request.getContextPath()%>/mvc/employes/liste">Liste des employés</a></li>
+<li><a href="<%=request.getContextPath()%>/mvc/employes/bulletin">Créer un bulletin de salaire</a></li>
 <li><a href="">Liste des bulletins</a></li>
 </ul>
 </body>
