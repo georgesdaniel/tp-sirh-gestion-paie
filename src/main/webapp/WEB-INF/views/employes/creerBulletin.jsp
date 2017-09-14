@@ -22,7 +22,7 @@
 		</select>
 		<br /> <br />
 		<span>Matricule : </span>
-			<select name="employeID">
+			<select name="employeId">
 				<c:forEach var="matricule" items="${ListEmployes}">
 					<option value="${matricule.id}">${matricule.matricule}</option>
 				</c:forEach>

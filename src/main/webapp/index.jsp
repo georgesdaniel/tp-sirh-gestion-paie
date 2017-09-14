@@ -15,7 +15,7 @@
 <li><a href="<%=request.getContextPath()%>/mvc/employes/creer">Ajouter un employé</a></li>
 <li><a href="<%=request.getContextPath()%>/mvc/employes/liste">Liste des employés</a></li>
 <li><a href="<%=request.getContextPath()%>/mvc/employes/bulletin">Créer un bulletin de salaire</a></li>
-<li><a href="">Liste des bulletins</a></li>
+<li><a href="<%=request.getContextPath()%>/mvc/employes/listebulletin">Liste des bulletins</a></li>
 </ul>
 </body>
 </html>

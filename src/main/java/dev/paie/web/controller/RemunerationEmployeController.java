@@ -3,15 +3,12 @@ package dev.paie.web.controller;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-
 import dev.paie.entite.BulletinSalaire;
 import dev.paie.entite.Entreprise;
 import dev.paie.entite.Grade;
@@ -31,15 +28,15 @@ public class RemunerationEmployeController {
 
 	@Autowired
 	private EntrepriseRepository entrepriseRepository;
-	
+
 	@Autowired
 	private PeriodeRepository periodeRepository;
 
 	@Autowired
 	private RemunerationEmployeRepository remunerationEmployeRepository;
-	
+
 	@Autowired
-	BulletinSalaireRepository bulletinSalaireRepository;
+	private BulletinSalaireRepository bulletinSalaireRepository;
 
 	@RequestMapping(method = RequestMethod.GET, path = "/creer")
 	public ModelAndView creerEmploye() {
@@ -51,6 +48,10 @@ public class RemunerationEmployeController {
 
 		return mv;
 	}
+	
+	/**
+     * Méthode permettant l'écriture en base d'un employé
+    */
 
 	@RequestMapping(method = RequestMethod.POST, path = "/inscription")
 	public ModelAndView inscriptionEmploye(HttpServletRequest request) {
@@ -75,6 +76,10 @@ public class RemunerationEmployeController {
 
 		return mv;
 	}
+	
+	/**
+     * Méthode permettant l'affichage de la liste des employés
+    */
 
 	@RequestMapping(method = RequestMethod.GET, path = "/liste")
 	public ModelAndView listeEmploye(HttpServletRequest request) {
@@ -83,36 +88,60 @@ public class RemunerationEmployeController {
 		mv.setViewName("employes/liste");
 		// RemunerationEmploye employes = new RemunerationEmploye();
 		mv.addObject("employes", remunerationEmployeRepository.findAll());
+		
+		/**
+	     * Verification que ma liste est bien remplie
+	    */
 		System.out.println("TAILLE LISTE = " + remunerationEmployeRepository.findAll().size());
 		return mv;
 
 	}
+	/**
+     * Méthode permettant de récupérer des éléments en base lors de l'affichage du bulletin
+    */
 
 	@RequestMapping(method = RequestMethod.GET, path = "/bulletin")
 	public ModelAndView creerBulletin(HttpServletRequest request) {
+		
 		ModelAndView mv = new ModelAndView();
-				
 		mv.setViewName("employes/creerBulletin");
 		mv.addObject("listePeriodes", periodeRepository.findAll());
 		mv.addObject("ListEmployes", remunerationEmployeRepository.findAll());
-
 		return mv;
 
 	}
-	
+	/**
+     * Méthode permettant l'écriture en base d'un bulletin de salaire
+    */
+	 
 	@RequestMapping(method = RequestMethod.POST, path = "/validerbulletin")
 	public ModelAndView validerBulletin(HttpServletRequest request) {
-		
+
 		BulletinSalaire bulletin = new BulletinSalaire();
 		bulletin.setPeriode(periodeRepository.findOne(Integer.parseInt(request.getParameter("periodeId"))));
-		//bulletin.setRemunerationEmploye(remunerationEmployeRepository.findOne(Integer.parseInt(request.getParameter("employeId"))));
+		bulletin.setRemunerationEmploye(remunerationEmployeRepository.findOne(Integer.parseInt(request.getParameter("employeId"))));
 		bulletin.setPrimeExceptionnelle(new BigDecimal(request.getParameter("prime")));
 		bulletin.setDateCreation(LocalDateTime.now());
 		bulletinSalaireRepository.save(bulletin);
-		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("employes/succes2");
 		return mv;
 
 	}
+	
+	/**
+     * Affichage d'un bulletin de salaire sur la page listebulletin
+    */
+
+	@RequestMapping(method = RequestMethod.GET, path = "/listebulletin")
+	public ModelAndView listerBulletin() {
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("employes/listeBulletin");
+		mv.addObject("ListBulletins", bulletinSalaireRepository.findAll());
+		System.out.println("TAILLE LISTE BULLETINS = " + bulletinSalaireRepository.findAll().size());
+
+		return mv;
+	}
+
 }
