@@ -86,7 +86,6 @@ public class RemunerationEmployeController {
 
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("employes/liste");
-		// RemunerationEmploye employes = new RemunerationEmploye();
 		mv.addObject("employes", remunerationEmployeRepository.findAll());
 		
 		/**

@@ -15,12 +15,12 @@ Menu :
 		<thead>
 			<tr>
 				<th>Date/heure de création |</th>
-				<th>Période  |</th>
-				<th>Matricule  |</th>
-				<th>Salaire brut  |</th>
-				<th>Net imposable  |</th>
-				<th>Net à payer  |</th>
-				<th>Actions  |</th>
+				<th>Période |</th>
+				<th>Matricule |</th>
+				<th>Salaire brut |</th>
+				<th>Net imposable |</th>
+				<th>Net à payer |</th>
+				<th>Actions |</th>
 			</tr>
 		</thead>
 		<tbody>

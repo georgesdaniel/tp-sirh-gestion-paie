@@ -29,7 +29,7 @@
 			</select>
 		 <br /> <br />		
  		<span>Prime</span>
-		 <input type="text" id="prime" name="prime" /> <br />
+		 <input type="text" id="prime" name="prime" />
 		<br /> <input type="submit" value="Ajouter" />
 	</form>
 </body>
